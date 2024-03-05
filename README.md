@@ -9,7 +9,7 @@ Stub/skeleton package compatible with Ragnarok
     "repositories": [
         {
             "type": "github",
-            "url": "https://github.com/example/ragnarok-statensVegvesen"
+            "url": "https://github.com/example/ragnarok-statens-vegvesen"
         },
 ```
 2. Add it.

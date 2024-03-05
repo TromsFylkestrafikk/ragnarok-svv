@@ -1,6 +1,6 @@
 {
-    "name": "ragnarok/statensVegvesen",
-    "description": "Ragnarok statensVegvesen datasink",
+    "name": "ragnarok/statens-vegvesen",
+    "description": "Ragnarok Statens Vegvesen datasink",
     "type": "library",
     "license": "GPL-3.0-or-later",
     "keywords": [],
