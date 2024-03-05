@@ -16,12 +16,12 @@ class StatensVegvesenServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/ragnarok_statensVegvesen.php', 'ragnarok_statensVegvesen');
+        $this->mergeConfigFrom(__DIR__ . '/../config/ragnarok_statens_vegvesen.php', 'ragnarok_statens_vegvesen');
         $this->publishConfig();
 
         SinkRegistrar::register(SinkStatensVegvesen::class);
 
-        // $this->loadViewsFrom(__DIR__.'/resources/views', 'ragnarok_statensVegvesen');
+        // $this->loadViewsFrom(__DIR__.'/resources/views', 'ragnarok_statens_vegvesen');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->registerRoutes();
     }
@@ -35,7 +35,7 @@ class StatensVegvesenServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/ragnarok_statensVegvesen.php' => config_path('ragnarok_statensVegvesen.php'),
+                __DIR__ . '/../config/ragnarok_statens_vegvesen.php' => config_path('ragnarok_statens_vegvesen.php'),
             ], ['config', 'config-statensVegvesen', 'statensVegvesen']);
         }
     }
