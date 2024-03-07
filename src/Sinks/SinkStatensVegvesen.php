@@ -7,11 +7,12 @@ use Ragnarok\Sink\Models\SinkFile;
 use Ragnarok\Sink\Sinks\SinkBase;
 use Ragnarok\Sink\Services\ChunkArchive;
 use Ragnarok\Sink\Services\ChunkExtractor;
+use Ragnarok\StatensVegvesen\Facades\StatensVegvesenFiles;
 
 class SinkStatensVegvesen extends SinkBase
 {
-    public static $id = "statensVegvesen";
-    public static $title = "StatensVegvesen";
+    public static $id = "statens-vegvesen";
+    public static $title = "Statens Vegvesen";
     // Uncomment if this sink only operate on one state per chunk in DB store.
     // public $singleState = true;
 
@@ -51,13 +52,11 @@ class SinkStatensVegvesen extends SinkBase
     public function fetch(string $id): SinkFile|null
     {
         // Retrieve data, stuff it to a single file and hand it over.
-        //
-        // $archive = new ChunkArchive(static::$id, $id);
-        // foreach (StatensVegvesenService::fetch($id) as $filepath) {
-        //     $archive->addFile($filePath, basename($filepath));
-        // }
-        // return $archive;
-        return null;
+        $archive = new ChunkArchive(static::$id, $id);
+        foreach (StatensVegvesenFiles::getData($id) as $filename => $content) {
+            $archive->addFromString($filename, $content);
+        }
+        return $archive->save()->getFile();
     }
 
     /**
