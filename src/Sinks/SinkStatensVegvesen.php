@@ -8,6 +8,7 @@ use Ragnarok\Sink\Sinks\SinkBase;
 use Ragnarok\Sink\Services\ChunkArchive;
 use Ragnarok\Sink\Services\ChunkExtractor;
 use Ragnarok\StatensVegvesen\Facades\StatensVegvesenFiles;
+use Ragnarok\StatensVegvesen\Services\StatensVegvesenImporter;
 
 class SinkStatensVegvesen extends SinkBase
 {
@@ -25,7 +26,7 @@ class SinkStatensVegvesen extends SinkBase
     public function destinationTables(): array
     {
         return [
-            'statensVegvesen_data' => 'Example destination table for statensVegvesen sink',
+            'statens_vegvesen_traffic' => 'Traffic data from Statens Vegvesen',
         ];
     }
 
@@ -65,14 +66,13 @@ class SinkStatensVegvesen extends SinkBase
     public function import(string $chunkId, SinkFile $file): int
     {
         // Using the created archive above, import it to DB.
-        //
-        // $extractor = new ChunkExtractor(static::$id, $file);
-        // $records = 0;
-        // foreach ($extractor->getFiles() as $filepath) {
-        //     $records += StatensVegvesenService::import($filepath);
-        // }
-        // return $records;
-        return 0;
+        $extractor = new ChunkExtractor(static::$id, $file);
+        $importer = new StatensVegvesenImporter($extractor->extract()->getDestDir());
+        $records = 0;
+        foreach ($extractor->getFiles() as $filepath) {
+            $records += $importer->import($chunkId, $filepath);
+        }
+        return $records;
     }
 
     /**
