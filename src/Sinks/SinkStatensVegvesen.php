@@ -26,7 +26,7 @@ class SinkStatensVegvesen extends SinkBase
     public function destinationTables(): array
     {
         return [
-            'statens_vegvesen_traffic' => 'Traffic data from Statens Vegvesen',
+            'statens_vegvesen_traffic' => 'Traffic volume data from Statens Vegvesen',
         ];
     }
 
@@ -80,10 +80,8 @@ class SinkStatensVegvesen extends SinkBase
      */
     public function deleteImport(string $id, SinkFile $file): bool
     {
-        // $extractor = new ChunkExtractor(static::$id, $file);
-        // foreach ($extractor->getFiles() as $filepath) {
-        //     StatensVegvesenService::delete(basename($filepath));
-        // }
+        $importer = new StatensVegvesenImporter();
+        $importer->deleteImport($id);
         return true;
     }
 
