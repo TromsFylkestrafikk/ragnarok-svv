@@ -22,7 +22,7 @@ class StatensVegvesenServiceProvider extends ServiceProvider
         SinkRegistrar::register(SinkStatensVegvesen::class);
 
         // $this->loadViewsFrom(__DIR__.'/resources/views', 'ragnarok_statens_vegvesen');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         // $this->registerRoutes();
     }
 
