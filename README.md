@@ -14,7 +14,7 @@ Stub/skeleton package compatible with Ragnarok
 ```
 2. Add it.
 ```bash
-composer require ragnarok/ragnarok-statensVegvesen
+composer require ragnarok/ragnarok-statens-vegvesen
 ```
 
 ## License

@@ -1,7 +1,7 @@
 {
-  "name": "ragnarok-statensVegvesen",
+  "name": "ragnarok-statens-vegvesen",
   "version": "0.0.1-dev",
-  "description": "Ragnarok StatensVegvesen data sink",
+  "description": "Ragnarok Statens Vegvesen data sink",
   "main": "index.js",
   "directories": {
     "test": "tests"

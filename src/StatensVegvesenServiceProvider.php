@@ -36,7 +36,7 @@ class StatensVegvesenServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/ragnarok_statens_vegvesen.php' => config_path('ragnarok_statens_vegvesen.php'),
-            ], ['config', 'config-statensVegvesen', 'statensVegvesen']);
+            ], ['config', 'config-statens-vegvesen', 'statens-vegvesen']);
         }
     }
 
