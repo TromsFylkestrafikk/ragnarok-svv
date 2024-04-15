@@ -1,6 +1,6 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Models;
+namespace Ragnarok\Svv\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +10,7 @@ class TrafficData extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $table = 'statens_vegvesen_traffic';
+    protected $table = 'svv_traffic';
     protected $fillable = [
         'chunk_date',
         'point_id',

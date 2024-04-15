@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('statens_vegvesen_traffic', function (Blueprint $table)
+        Schema::create('svv_traffic', function (Blueprint $table)
         {
             $table->date('chunk_date')->index()->comment('The dated chunk this transaction belongs to');
             $table->string('point_id')->comment('Traffic registration point ID');
@@ -46,6 +46,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('statens_vegvesen_traffic');
+        Schema::dropIfExists('svv_traffic');
     }
 };

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Tests;
+namespace Ragnarok\Svv\Tests;
 
-use Ragnarok\StatensVegvesen\StatensVegvesenServiceProvider;
+use Ragnarok\Svv\SvvServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -32,6 +32,6 @@ class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app)
     {
-        return [StatensVegvesenServiceProvider::class];
+        return [SvvServiceProvider::class];
     }
 }

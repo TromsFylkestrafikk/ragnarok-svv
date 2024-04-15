@@ -1,13 +1,17 @@
 {
-    "name": "ragnarok/statens-vegvesen",
+    "name": "ragnarok/svv",
     "description": "Ragnarok Statens Vegvesen datasink",
     "type": "library",
     "license": "GPL-3.0-or-later",
     "keywords": [],
     "authors": [
         {
-            "name": "Your Name",
-            "email": "your.email@example.com"
+            "name": "Kyrre André Hansen",
+            "email": "kyrre.andre.hansen@tromsfylke.no"
+        },
+        {
+            "name": "Kåre Slettnes",
+            "email": "kaare.slettnes@tromsfylke.no"
         }
     ],
     "minimum-stability": "dev",
@@ -29,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ragnarok\\StatensVegvesen\\": "src/"
+            "Ragnarok\\Svv\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ragnarok\\StatensVegvesen\\Tests\\":"tests/"
+            "Ragnarok\\Svv\\Tests\\":"tests/"
         }
     },
     "config": {
@@ -43,14 +47,14 @@
     },
     "repositories": [
         {
-            "type": "github",
-            "url": "https://github.com/tromsfylkestrafikk/ragnarok-sink"
+            "type": "path",
+            "url": "../ragnarok-sink"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Ragnarok\\StatensVegvesen\\StatensVegvesenServiceProvider"
+                "Ragnarok\\Svv\\SvvServiceProvider"
             ]
         }
     }

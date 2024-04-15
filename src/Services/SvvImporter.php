@@ -1,12 +1,12 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Services;
+namespace Ragnarok\Svv\Services;
 
 use Illuminate\Support\Carbon;
 use Ragnarok\Sink\Traits\LogPrintf;
-use Ragnarok\StatensVegvesen\Models\TrafficData;
+use Ragnarok\Svv\Models\TrafficData;
 
-class StatensVegvesenImporter
+class SvvImporter
 {
     use LogPrintf;
 
@@ -19,7 +19,7 @@ class StatensVegvesenImporter
 
     public function __construct(string $folder = null)
     {
-        $this->logPrintfInit('[StatensVegvesenImporter]: ');
+        $this->logPrintfInit('[SvvImporter]: ');
         if (!$folder) return;
 
         // Load traffic registration points.

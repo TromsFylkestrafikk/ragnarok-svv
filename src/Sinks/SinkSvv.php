@@ -1,18 +1,18 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Sinks;
+namespace Ragnarok\Svv\Sinks;
 
 use Illuminate\Support\Carbon;
 use Ragnarok\Sink\Models\SinkFile;
 use Ragnarok\Sink\Sinks\SinkBase;
 use Ragnarok\Sink\Services\ChunkArchive;
 use Ragnarok\Sink\Services\ChunkExtractor;
-use Ragnarok\StatensVegvesen\Facades\StatensVegvesenFiles;
-use Ragnarok\StatensVegvesen\Services\StatensVegvesenImporter;
+use Ragnarok\Svv\Facades\SvvFiles;
+use Ragnarok\Svv\Services\SvvImporter;
 
-class SinkStatensVegvesen extends SinkBase
+class SinkSvv extends SinkBase
 {
-    public static $id = "statens-vegvesen";
+    public static $id = "svv";
     public static $title = "Statens Vegvesen";
     // Uncomment if this sink only operate on one state per chunk in DB store.
     // public $singleState = true;
@@ -26,7 +26,7 @@ class SinkStatensVegvesen extends SinkBase
     public function destinationTables(): array
     {
         return [
-            'statens_vegvesen_traffic' => 'Traffic volume data from Statens Vegvesen',
+            'svv_traffic' => 'Traffic volume data from Statens Vegvesen',
         ];
     }
 
@@ -54,7 +54,7 @@ class SinkStatensVegvesen extends SinkBase
     {
         // Retrieve data, stuff it to a single file and hand it over.
         $archive = new ChunkArchive(static::$id, $id);
-        foreach (StatensVegvesenFiles::getData($id) as $filename => $content) {
+        foreach (SvvFiles::getData($id) as $filename => $content) {
             $archive->addFromString($filename, $content);
         }
         return $archive->save()->getFile();
@@ -67,7 +67,7 @@ class SinkStatensVegvesen extends SinkBase
     {
         // Using the created archive above, import it to DB.
         $extractor = new ChunkExtractor(static::$id, $file);
-        $importer = new StatensVegvesenImporter($extractor->extract()->getDestDir());
+        $importer = new SvvImporter($extractor->extract()->getDestDir());
         $records = 0;
         foreach ($extractor->getFiles() as $filepath) {
             $records += $importer->import($chunkId, $filepath);
@@ -80,7 +80,7 @@ class SinkStatensVegvesen extends SinkBase
      */
     public function deleteImport(string $id, SinkFile $file): bool
     {
-        $importer = new StatensVegvesenImporter();
+        $importer = new SvvImporter();
         $importer->deleteImport($id);
         return true;
     }

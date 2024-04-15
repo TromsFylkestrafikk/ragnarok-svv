@@ -1,20 +1,13 @@
-# Ragnarok StatensVegvesen sink
+# Ragnarok sink for Statens vegvesen
 
 Stub/skeleton package compatible with Ragnarok
 
 ## Install
 
-1. Add repository to your composer.json:
-```json
-    "repositories": [
-        {
-            "type": "github",
-            "url": "https://github.com/example/ragnarok-statens-vegvesen"
-        },
-```
-2. Add it.
+1. Configure and add composer repository
 ```bash
-composer require ragnarok/ragnarok-statens-vegvesen
+composer config repositories.ragnarok-svv vcs http://github.com:tromsfylkestrafikk/ragnarok-svv
+composer require ragnarok/ragnarok-svv
 ```
 
 ## License

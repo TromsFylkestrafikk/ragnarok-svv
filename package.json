@@ -1,5 +1,5 @@
 {
-  "name": "ragnarok-statens-vegvesen",
+  "name": "ragnarok-svv",
   "version": "0.0.1-dev",
   "description": "Ragnarok Statens Vegvesen data sink",
   "main": "index.js",

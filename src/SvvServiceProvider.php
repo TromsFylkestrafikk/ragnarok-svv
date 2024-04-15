@@ -1,13 +1,13 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen;
+namespace Ragnarok\Svv;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Ragnarok\StatensVegvesen\Sinks\SinkStatensVegvesen;
+use Ragnarok\Svv\Sinks\SinkSvv;
 use Ragnarok\Sink\Facades\SinkRegistrar;
 
-class StatensVegvesenServiceProvider extends ServiceProvider
+class SvvServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -16,12 +16,12 @@ class StatensVegvesenServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/ragnarok_statens_vegvesen.php', 'ragnarok_statens_vegvesen');
+        $this->mergeConfigFrom(__DIR__ . '/../config/ragnarok_svv.php', 'ragnarok_svv');
         $this->publishConfig();
 
-        SinkRegistrar::register(SinkStatensVegvesen::class);
+        SinkRegistrar::register(SinkSvv::class);
 
-        // $this->loadViewsFrom(__DIR__.'/resources/views', 'ragnarok_statens_vegvesen');
+        // $this->loadViewsFrom(__DIR__.'/resources/views', 'ragnarok_svv');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         // $this->registerRoutes();
     }
@@ -35,8 +35,8 @@ class StatensVegvesenServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/ragnarok_statens_vegvesen.php' => config_path('ragnarok_statens_vegvesen.php'),
-            ], ['config', 'config-statens-vegvesen', 'statens-vegvesen']);
+                __DIR__ . '/../config/ragnarok_svv.php' => config_path('ragnarok_svv.php'),
+            ], ['config', 'config-svv', 'svv']);
         }
     }
 
@@ -70,7 +70,7 @@ class StatensVegvesenServiceProvider extends ServiceProvider
     protected function routeConfiguration(): array
     {
         return [
-            'namespace'  => "Ragnarok\StatensVegvesen\Http\Controllers",
+            'namespace'  => "Ragnarok\Svv\Http\Controllers",
             'middleware' => 'api',
             'prefix'     => 'api'
         ];

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Tests\Feature;
+namespace Ragnarok\Svv\Tests\Feature;
 
-use Ragnarok\StatensVegvesen\Tests\TestCase;
+use Ragnarok\Svv\Tests\TestCase;
 
 class ExampleTest extends TestCase
 {

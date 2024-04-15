@@ -1,17 +1,17 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Services;
+namespace Ragnarok\Svv\Services;
 
 use GuzzleHttp\Client as HttpClient;
 use Ragnarok\Sink\Traits\LogPrintf;
 
-class StatensVegvesenFiles
+class SvvFiles
 {
     use LogPrintf;
 
     public function __construct()
     {
-        $this->logPrintfInit('[StatensVegvesenService]: ');
+        $this->logPrintfInit('[SvvService]: ');
     }
 
     public function getData(string $id)
@@ -50,7 +50,7 @@ class StatensVegvesenFiles
      */
     protected function fetchTrafficRegistrationPoints(HttpClient $client): string
     {
-        $countyNumber = config('ragnarok_statens_vegvesen.county_number');
+        $countyNumber = config('ragnarok_svv.county_number');
         $query = <<<GraphQL
             query {
                 trafficRegistrationPoints(
@@ -87,7 +87,7 @@ class StatensVegvesenFiles
             }
             GraphQL;
 
-        $response = $client->post(config('ragnarok_statens_vegvesen.base_url'), [
+        $response = $client->post(config('ragnarok_svv.base_url'), [
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
@@ -147,7 +147,7 @@ class StatensVegvesenFiles
             }
             GraphQL;
 
-        $response = $client->post(config('ragnarok_statens_vegvesen.base_url'), [
+        $response = $client->post(config('ragnarok_svv.base_url'), [
             'headers' => [
                 'Content-Type' => 'application/json',
             ],

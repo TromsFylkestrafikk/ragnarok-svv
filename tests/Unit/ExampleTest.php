@@ -1,8 +1,8 @@
 <?php
 
-namespace Ragnarok\StatensVegvesen\Tests\Unit;
+namespace Ragnarok\Svv\Tests\Unit;
 
-use Ragnarok\StatensVegvesen\Tests\TestCase;
+use Ragnarok\Svv\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
