@@ -27,13 +27,13 @@ return new class extends Migration
             $table->string('operational_status')->comment('Status (operational, retired or temporarily out of service)');
             $table->integer('total_volume')->nullable()->comment('Total traffic volume for this day');
             $table->float('total_coverage')->nullable()->comment('Coverage for the period (percentage)');
-            $table->integer('less_than_5,6m')->nullable()->comment('Light vehicles (less than 5.6 meters)');
-            $table->integer('more_than_5,6m')->nullable()->comment('Heavy vehicles (more than 5.6 meters)');
-            $table->integer('5,6_to_7,6m')->nullable()->comment('Vehicles between 5.6 and 7.6 meters');
-            $table->integer('7,6_to_12,5m')->nullable()->comment('Vehicles between 7.6 and 12.5 meters');
-            $table->integer('12,5_to_16,0m')->nullable()->comment('Vehicles between 12.5 and 16.0 meters');
-            $table->integer('16,0_to_24,0m')->nullable()->comment('Vehicles between 16.0 and 24.0 meters');
-            $table->integer('more_than_24,0m')->nullable()->comment('Vehicles longer than 24.0 meters');
+            $table->integer('length_under_5_6')->nullable()->comment('Light vehicles (less than 5.6 meters)');
+            $table->integer('length_over_5_6')->nullable()->comment('Heavy vehicles (more than 5.6 meters)');
+            $table->integer('length_5_6__7_6')->nullable()->comment('Vehicles between 5.6 and 7.6 meters');
+            $table->integer('length_7_6__12_5')->nullable()->comment('Vehicles between 7.6 and 12.5 meters');
+            $table->integer('length_12_5__16')->nullable()->comment('Vehicles between 12.5 and 16.0 meters');
+            $table->integer('length_16__24')->nullable()->comment('Vehicles between 16.0 and 24.0 meters');
+            $table->integer('length_over_24')->nullable()->comment('Vehicles longer than 24.0 meters');
             $table->primary([
                 'chunk_date',
                 'point_id',

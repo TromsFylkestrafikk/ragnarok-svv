@@ -76,13 +76,13 @@ class SvvImporter
                 'operational_status'    => $this->regPoints[$id]['operational_status'],
                 'total_volume'          => $node?->total->volumeNumbers->volume,
                 'total_coverage'        => $node?->total->coverage->percentage,
-                'less_than_5,6m'        => $this->getVolumeByVehicleLength('..,5.6', $node?->byLengthRange),
-                'more_than_5,6m'        => $this->getVolumeByVehicleLength('5.6,..', $node?->byLengthRange),
-                '5,6_to_7,6m'           => $this->getVolumeByVehicleLength('5.6,7.6', $node?->byLengthRange),
-                '7,6_to_12,5m'          => $this->getVolumeByVehicleLength('7.6,12.5', $node?->byLengthRange),
-                '12,5_to_16,0m'         => $this->getVolumeByVehicleLength('12.5,16.0', $node?->byLengthRange),
-                '16,0_to_24,0m'         => $this->getVolumeByVehicleLength('16.0,24.0', $node?->byLengthRange),
-                'more_than_24,0m'       => $this->getVolumeByVehicleLength('24.0,..', $node?->byLengthRange),
+                'length_under_5_6'      => $this->getVolumeByVehicleLength('..,5.6', $node?->byLengthRange),
+                'length_over_5_6'       => $this->getVolumeByVehicleLength('5.6,..', $node?->byLengthRange),
+                'length_5_6__7_6'       => $this->getVolumeByVehicleLength('5.6,7.6', $node?->byLengthRange),
+                'length_7_6__12_5'      => $this->getVolumeByVehicleLength('7.6,12.5', $node?->byLengthRange),
+                'length_12_5__16'       => $this->getVolumeByVehicleLength('12.5,16.0', $node?->byLengthRange),
+                'length_16__24'         => $this->getVolumeByVehicleLength('16.0,24.0', $node?->byLengthRange),
+                'length_over_24'        => $this->getVolumeByVehicleLength('24.0,..', $node?->byLengthRange),
             ]);
             return 1;
         }
