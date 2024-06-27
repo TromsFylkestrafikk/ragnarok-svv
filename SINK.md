@@ -6,8 +6,8 @@ Traffic counter data from Statens vegvesen for one county.
 
 This is vehicle/bicycle counter data at various counter points for one
 county.  The numbers are daily totals and contains bicycle or vehicle
-counters.  In addition to total number of passed vehicles, it is
-divided further down vehicle length.  Destination table is
+counters.  In addition to total number of passed vehicles, you can
+drill down counts grouped by vehicle length.  Destination table is
 `svv_traffic`.
 
 ## Source
